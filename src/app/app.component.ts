@@ -32,7 +32,24 @@ export class AppComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
-    this.modalService.show(template);
+    this.modalRef = this.modalService.show(template);
     //
+  }
+
+  addEmployee() {
+    const payload: Employee = {
+      id: 0,
+      name: '',
+      email: '',
+      jobTitle: '',
+      phone: '',
+      imageUrl: '',
+      employeeCode: '',
+    };
+
+    this.employeeService.addEmployee(payload).subscribe((res) => {
+      console.log(res);
+      this.modalRef?.hide();
+    });
   }
 }
