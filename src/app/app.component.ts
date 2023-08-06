@@ -12,6 +12,11 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class AppComponent implements OnInit {
   modalRef?: BsModalRef;
   public employees: Employee[] = [];
+  name: string = '';
+  email: string = '';
+  jobTitle: string = '';
+  phone: string = '';
+  imgUrl: string = '';
 
   constructor(
     private employeeService: EmployeeService,
@@ -33,23 +38,26 @@ export class AppComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
-    //
   }
 
   addEmployee() {
     const payload: Employee = {
-      id: 0,
-      name: '',
-      email: '',
-      jobTitle: '',
-      phone: '',
-      imageUrl: '',
-      employeeCode: '',
+      id: undefined,
+      name: this.name,
+      email: this.email,
+      jobTitle: this.jobTitle,
+      phone: this.phone,
+      imageUrl: this.imgUrl,
+      employeeCode: undefined,
     };
 
-    this.employeeService.addEmployee(payload).subscribe((res) => {
-      console.log(res);
-      this.modalRef?.hide();
+    this.employeeService.addEmployee(payload).subscribe({
+      next: (employee) => {
+        console.log(`${employee.name} added`);
+        this.modalRef?.hide();
+        this.getEmployees();
+      },
+      error: (error: HttpErrorResponse) => console.error(error.message),
     });
   }
 }

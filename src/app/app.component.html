@@ -61,21 +61,25 @@
     </button>
   </div>
   <div class="modal-body">
-    <div>
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name">
+    <div class="form-group">
+      <label for="name" class="control-label">Name</label>
+      <input type="text" name="name" id="name" [(ngModel)]="name" class="form-control">
     </div>
-    <div>
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email">
+    <div class="form-group">
+      <label for="email" class="control-label">Email</label>
+      <input type="email" name="email" id="email" [(ngModel)]="email" class="form-control">
     </div>
-    <div>
-      <label for="job">Job Title</label>
-      <input type="text" name="job" id="job">
+    <div class="form-group">
+      <label for="job" class="control-label">Job Title</label>
+      <input type="text" name="job" id="job" [(ngModel)]="jobTitle" class="form-control">
     </div>
-    <div>
-      <label for="phone">Phone</label>
-      <input type="text" name="phone" id="phone">
+    <div class="form-group">
+      <label for="phone" class="control-label">Phone</label>
+      <input type="text" name="phone" id="phone" [(ngModel)]="phone" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="imgUrl" class="control-label">Image</label>
+      <input type="file" name="imgUrl" id="imgUrl" [(ngModel)]="imgUrl" class="form-control">
     </div>
   </div>
   <div class="modal-footer">
