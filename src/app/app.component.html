@@ -7,7 +7,8 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" (click)="openModal(employeeModal)">Add Employee <span class="sr-only">(current)</span></a>
+        <a class="nav-link" (click)="openModal(employeeModal, 'add')">Add Employee <span
+            class="sr-only">(current)</span></a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -36,10 +37,12 @@
         </ul>
         <div class="card-body">
           <div class="float-right btn-group btn-group-sm">
-            <a href="#" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip"
-              data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-            <a href="#" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip"
-              data-original-title="Delete"><i class="fa fa-times"></i></a>
+            <button class="btn btn-primary" (click)="openModal(employeeModal, 'edit', employee)">
+              <i class="fa fa-pencil"></i>
+            </button>
+            <button class="btn btn-secondary">
+              <i class="fa fa-times"></i>
+            </button>
           </div>
         </div>
       </div>

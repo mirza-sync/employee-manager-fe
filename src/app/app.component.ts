@@ -36,7 +36,18 @@ export class AppComponent implements OnInit {
     });
   }
 
-  openModal(template: TemplateRef<any>) {
+  openModal(
+    template: TemplateRef<any>,
+    mode: 'add' | 'edit',
+    employee?: Employee
+  ) {
+    if (mode === 'edit' && employee) {
+      this.name = employee.name;
+      this.email = employee.email;
+      this.jobTitle = employee.jobTitle;
+      this.phone = employee.phone;
+      // this.imgUrl = employee.imageUrl;
+    }
     this.modalRef = this.modalService.show(template);
   }
 
