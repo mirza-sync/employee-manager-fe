@@ -12,6 +12,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class AppComponent implements OnInit {
   modalRef?: BsModalRef;
   public employees: Employee[] = [];
+  isEdit: boolean = false;
   name: string = '';
   email: string = '';
   jobTitle: string = '';
@@ -42,6 +43,7 @@ export class AppComponent implements OnInit {
     employee?: Employee
   ) {
     if (mode === 'edit' && employee) {
+      this.isEdit = true;
       this.name = employee.name;
       this.email = employee.email;
       this.jobTitle = employee.jobTitle;
@@ -69,6 +71,26 @@ export class AppComponent implements OnInit {
         this.getEmployees();
       },
       error: (error: HttpErrorResponse) => console.error(error.message),
+    });
+  }
+
+  editEmployee() {
+    const payload: Employee = {
+      id: undefined,
+      name: this.name,
+      email: this.email,
+      jobTitle: this.jobTitle,
+      phone: this.phone,
+      imageUrl: this.imgUrl,
+      employeeCode: undefined,
+    };
+
+    this.employeeService.updateEmployee(payload).subscribe({
+      next: (employee) => {
+        console.log(`${employee.name} updated`);
+        this.modalRef?.hide();
+        this.getEmployees();
+      },
     });
   }
 }

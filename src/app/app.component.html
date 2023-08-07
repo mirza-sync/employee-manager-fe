@@ -58,7 +58,7 @@
 
 <ng-template #employeeModal>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Add Employee</h4>
+    <h4 class="modal-title pull-left">{{isEdit ? 'Edit' : 'Add'}} Employee</h4>
     <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
@@ -86,6 +86,6 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="addEmployee()">Submit</button>
+    <button type="button" class="btn btn-primary" (click)="isEdit ? editEmployee() : addEmployee()">Submit</button>
   </div>
 </ng-template>
