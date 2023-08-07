@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   jobTitle: string = '';
   phone: string = '';
   imgUrl: string = '';
+  employeeCode: string | null = null;
 
   constructor(
     private employeeService: EmployeeService,
@@ -48,6 +49,7 @@ export class AppComponent implements OnInit {
       this.email = employee.email;
       this.jobTitle = employee.jobTitle;
       this.phone = employee.phone;
+      this.employeeCode = employee.employeeCode;
       // this.imgUrl = employee.imageUrl;
     }
     this.modalRef = this.modalService.show(template);
@@ -61,7 +63,7 @@ export class AppComponent implements OnInit {
       jobTitle: this.jobTitle,
       phone: this.phone,
       imageUrl: this.imgUrl,
-      employeeCode: undefined,
+      employeeCode: null,
     };
 
     this.employeeService.addEmployee(payload).subscribe({
@@ -82,7 +84,7 @@ export class AppComponent implements OnInit {
       jobTitle: this.jobTitle,
       phone: this.phone,
       imageUrl: this.imgUrl,
-      employeeCode: undefined,
+      employeeCode: this.employeeCode,
     };
 
     this.employeeService.updateEmployee(payload).subscribe({
