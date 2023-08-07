@@ -91,6 +91,7 @@ export class AppComponent implements OnInit {
         this.modalRef?.hide();
         this.getEmployees();
       },
+      error: (error: HttpErrorResponse) => console.log(error.message),
     });
   }
 }
