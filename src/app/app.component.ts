@@ -96,4 +96,15 @@ export class AppComponent implements OnInit {
       error: (error: HttpErrorResponse) => console.log(error.message),
     });
   }
+
+  deleteEmployee(employee: Employee) {
+    this.employeeService.deleteEmployee(employee.id!).subscribe({
+      next: () => {
+        console.log(`${employee.name} deleted`);
+        this.modalRef?.hide();
+        this.getEmployees();
+      },
+      error: (error: HttpErrorResponse) => console.log(error.message),
+    });
+  }
 }
