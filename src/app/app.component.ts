@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   phone: string = '';
   imgUrl: string = '';
   employeeCode: string | null = null;
+  empolyee: Employee = {} as Employee;
 
   constructor(
     private employeeService: EmployeeService,
@@ -45,11 +46,12 @@ export class AppComponent implements OnInit {
   ) {
     if (mode === 'edit' && employee) {
       this.isEdit = true;
+      this.empolyee = employee;
+
       this.name = employee.name;
       this.email = employee.email;
       this.jobTitle = employee.jobTitle;
       this.phone = employee.phone;
-      this.employeeCode = employee.employeeCode;
       // this.imgUrl = employee.imageUrl;
     }
     this.modalRef = this.modalService.show(template);
@@ -57,13 +59,11 @@ export class AppComponent implements OnInit {
 
   addEmployee() {
     const payload: Employee = {
-      id: undefined,
       name: this.name,
       email: this.email,
       jobTitle: this.jobTitle,
       phone: this.phone,
       imageUrl: this.imgUrl,
-      employeeCode: null,
     };
 
     this.employeeService.addEmployee(payload).subscribe({
@@ -78,13 +78,13 @@ export class AppComponent implements OnInit {
 
   editEmployee() {
     const payload: Employee = {
-      id: undefined,
+      id: this.empolyee.id,
       name: this.name,
       email: this.email,
       jobTitle: this.jobTitle,
       phone: this.phone,
       imageUrl: this.imgUrl,
-      employeeCode: this.employeeCode,
+      employeeCode: this.empolyee.employeeCode,
     };
 
     this.employeeService.updateEmployee(payload).subscribe({

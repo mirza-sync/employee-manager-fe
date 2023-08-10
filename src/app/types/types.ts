@@ -5,5 +5,5 @@ export interface Employee {
   jobTitle: string;
   phone: string;
   imageUrl: string;
-  employeeCode: string | null;
+  employeeCode?: string;
 }
