@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   phone: string = '';
   imgUrl: string = '';
   employeeCode: string | null = null;
-  empolyee: Employee = {} as Employee;
+  employee: Employee = {} as Employee;
 
   constructor(
     private employeeService: EmployeeService,
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
   ) {
     if (mode === 'edit' && employee) {
       this.isEdit = true;
-      this.empolyee = employee;
+      this.employee = employee;
 
       this.name = employee.name;
       this.email = employee.email;
@@ -78,13 +78,13 @@ export class AppComponent implements OnInit {
 
   editEmployee() {
     const payload: Employee = {
-      id: this.empolyee.id,
+      id: this.employee.id,
       name: this.name,
       email: this.email,
       jobTitle: this.jobTitle,
       phone: this.phone,
       imageUrl: this.imgUrl,
-      employeeCode: this.empolyee.employeeCode,
+      employeeCode: this.employee.employeeCode,
     };
 
     this.employeeService.updateEmployee(payload).subscribe({
