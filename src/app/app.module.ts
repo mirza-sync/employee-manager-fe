@@ -6,9 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule } from '@angular/forms';
+import { DepartmentComponent } from './components/department/department.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DepartmentComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
