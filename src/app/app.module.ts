@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule } from '@angular/forms';
 import { DepartmentComponent } from './components/department/department.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent, DepartmentComponent],
@@ -16,6 +17,7 @@ import { DepartmentComponent } from './components/department/department.componen
     FormsModule,
     BrowserAnimationsModule,
     ModalModule.forRoot(),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
