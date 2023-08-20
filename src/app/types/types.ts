@@ -7,3 +7,9 @@ export interface Employee {
   imageUrl: string;
   employeeCode?: string;
 }
+
+export type Department = {
+  id?: number;
+  name: string;
+  employees: Employee[];
+};
