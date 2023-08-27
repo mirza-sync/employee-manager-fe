@@ -1,1 +1,19 @@
-<p>create-department-modal works!</p>
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Add Department</h4>
+  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="mb-3">
+    <label for="name" class="control-label">Department Name</label>
+    <input type="text" name="name" id="name" [(ngModel)]="name" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="control-label">Employees</label>
+    <!-- TODO: Employee selector -->
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="addDepartment()">Submit</button>
+</div>
