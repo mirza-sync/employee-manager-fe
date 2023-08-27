@@ -9,9 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { DepartmentComponent } from './components/department/department.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { CreateDepartmentModalComponent } from './components/department/create-department-modal/create-department-modal.component';
 
 @NgModule({
-  declarations: [AppComponent, DepartmentComponent, EmployeeComponent],
+  declarations: [AppComponent, DepartmentComponent, EmployeeComponent, CreateDepartmentModalComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
